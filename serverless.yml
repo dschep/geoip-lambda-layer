@@ -1,4 +1,4 @@
-service: aws-lambda-layer
+service: geo-lambda-layer
 
 provider:
   name: aws
@@ -7,7 +7,6 @@ plugins:
   - serverless-lambda-layers
 
 layers:
-  test:
-    layerName: test-layer
+  geoip:
     buildScript: ./build.sh
     path: layer
