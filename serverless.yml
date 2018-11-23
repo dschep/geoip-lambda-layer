@@ -1,7 +1,8 @@
-service: geo-lambda-layer
+service: geoip-lambda-layer
 
 provider:
   name: aws
+  region: us-east-1
 
 plugins:
   - serverless-lambda-layers
@@ -10,3 +11,5 @@ layers:
   geoip:
     buildScript: ./build.sh
     path: layer
+    allowedAccounts:
+      - '*'

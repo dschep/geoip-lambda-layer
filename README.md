@@ -4,9 +4,9 @@ free GeoLite2 geo IP databases and the C library for reading them and python3.6 
 library against it.
 
 ## ARN
-The arn for this layer is: `arn:aws:lambda:us-west-2:377024778620:layer:geoip`
+The arn for this layer is: `arn:aws:lambda:us-east-1:377024778620:layer:geoip`
 
-The fully qualified arn with the latest version is: `arn:aws:lambda:us-west-2:377024778620:layer:geoip:2`
+The fully qualified arn with the latest version is: `arn:aws:lambda:us-east-1:377024778620:layer:geoip:1`
 
 ## DB path when Lambda is executing
 The GeoLite2 libraries can be found at the following paths in your running Lambda:
