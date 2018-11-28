@@ -9,6 +9,7 @@ functions:
   get-location:
     handler: handler.geoip
     layers:
+      # Update this ARN after you've deployed the geoip layer
       - arn:aws:lambda:${self:provider.region, 'us-east-1'}:377024778620:layer:geoip:2
     events:
       - http:
