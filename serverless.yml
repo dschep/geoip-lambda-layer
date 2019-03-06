@@ -7,5 +7,4 @@ provider:
 
 layers:
   geoip:
-    buildScript: ./build.sh
     path: layer
