@@ -1,5 +1,6 @@
 FROM lambci/lambda:build-python3.6
 
+ARG MAXMIND_LICENSE_KEY
 ENV LIBMAXMINDDB_VERSION=1.3.2
 
 # Compilation work for libmaxminddb
@@ -24,9 +25,9 @@ RUN pip install --target=/opt/python/ geoip2
 # Download the DBs!
 RUN mkdir /opt/maxminddb
 WORKDIR /opt/maxminddb
-RUN curl http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.tar.gz | tar xz
-RUN curl http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.tar.gz | tar xz
-RUN curl http://geolite.maxmind.com/download/geoip/database/GeoLite2-ASN.tar.gz | tar xz
+RUN curl -L "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key=${MAXMIND_LICENSE_KEY}&suffix=tar.gz" | tar xz
+RUN curl -L "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&license_key=${MAXMIND_LICENSE_KEY}&suffix=tar.gz" | tar xz
+RUN curl -L "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-ASN&license_key=${MAXMIND_LICENSE_KEY}&suffix=tar.gz" | tar xz
 RUN mv */*.mmdb . && rm -r GeoLite2-{ASN,City,Country}_*/
 
 # set workdir back
